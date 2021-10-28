@@ -1,0 +1,84 @@
+=> create database university;
+=> use university;
+=> create table student(
+		student_id bigint(12) not null unique,
+		name varchar(50) not null,
+		age int check(age>18)
+	);
+=> drop table student;
+=> create table student(
+		student_id bigint(12) primary key auto_increment,
+		first_name varchar(50),
+		last_name varchar(50),
+		age int
+	);
+=> drop table student;
+=> insert into student(first_name, last_name, age) values('Karim','Ahmed',20);
+=> insert into student values(2,'Rahim','Uddin',20);
+=> select distinct(age), first_name from student;
+=> select * from student where student_id=2;
+=> insert into student(first_name,last_name,age)
+values('Abid','Khan',19);
+=> select * from student order by first_name;
+=> select * from student order by first_name limit 2,5;
+=> delete from student where first_name='Karim';
+
+=> insert into student(first_name,last_name,age)
+values('Abu', 'Hanif', 20),
+('Abid','Khan',20),
+('Palash','Barman',20); 
+
+=> create table teacher(
+	teacher_id int(10) auto_increment,
+	name varchar(50) not null,
+	constraint te_pk primary key(teacher_id,name)
+	);
+	
+=> create table teaches(
+	student_id bigint(12),
+	constraint st_fk foreign key(student_id) references student(student_id),
+	teacher_id int(10),
+	constraint te_fk foreign key(teacher_id) references teacher(teacher_id),
+	constraint teaches_pk primary key(student_id,teacher_id)
+	);
+	
+=> update student set age=35 where student_id=12;
+	
+=> update student set age=25, first_name='Mobin', last_name='Ahmed' where student_id=12;
+
+=> select * from student where first_name like '%i%';
+	
+=> Find all the students whose age is not greater than 20 and first name contains the string 'ob'.
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

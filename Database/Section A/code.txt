@@ -1,0 +1,713 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.14 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| university         |
++--------------------+
+5 rows in set (0.09 sec)
+
+mysql> drop university;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'university' at line 1
+mysql> drop database university;
+Query OK, 1 row affected (0.48 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database university;
+Query OK, 1 row affected (0.17 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| university         |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use university;
+Database changed
+mysql> show tables;
+Empty set (0.07 sec)
+
+mysql> drop university;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'university' at line 1
+mysql> drop database university;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show datbases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'datbases' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database university;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| university         |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql>  use university;
+Database changed
+mysql> create table student(
+    -> student_id bigint(12) not null unique,
+    -> name varchar(50) not null,
+    -> age int check(age>18)
+    -> );
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_university |
++----------------------+
+| student              |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | NO   |     | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table student(
+    -> student_id bigint(12) not null,
+    -> name varchar(50) not null,
+    -> age int,
+    -> primary key(student_id, name),
+    -> check(age>18)
+    -> );
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_university |
++----------------------+
+| student              |
++----------------------+
+1 row in set (0.02 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | NO   | PRI | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table student(
+    -> student_id bigint(12) not null,
+    -> name varchar(50) not null,
+    -> age int,
+    -> primary key(student_id, name),
+    -> constraint age_const CHECK(age>18)
+    -> );
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | NO   | PRI | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> create table student(
+    -> student_id bigint(12) not null,
+    -> name varchar(50) not null,
+    -> age int,
+    -> constraint uni_id unique(student_id, name),
+    -> constraint age_const CHECK(age>18)
+    -> );
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | NO   | PRI | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> create table student(
+    -> student_id bigint(12),
+    -> name varchar(50),
+    -> age int,
+    -> constraint uni_id unique(student_id, name),
+    -> constraint age_const CHECK(age>18)
+    -> );
+Query OK, 0 rows affected (0.40 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | YES  | MUL | NULL    |       |
+| name       | varchar(50) | YES  |     | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> create table student(
+    -> student_id bigint(12),
+    -> name varchar(50) default 'Hi',
+    -> age int,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql> create table student(
+    -> student_id bigint(12),
+    -> name varchar(50) not null default 'Hi',
+    -> age int,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql> create table student(
+    -> student_id bigint(12),
+    -> name varchar(50) default 'Hi',
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | YES  |     | NULL    |       |
+| name       | varchar(50) | YES  |     | Hi      |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> => create table student(
+    -> student_id bigint(12) primary key,
+    -> name varchar(50) default 'Hi',
+    -> age int
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=> create table student(
+student_id bigint(12) primary key,
+name varchar(50) def' at line 1
+mysql> create table student(
+    -> student_id bigint(12) primary key,
+    -> name varchar(50) default 'Hi',
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> create index name_index on student(name);
+Query OK, 0 rows affected (0.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | YES  | MUL | Hi      |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter student drop index name_index;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'student drop index name_index' at line 1
+mysql> alter table student drop index name_index;
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | bigint(12)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | YES  |     | Hi      |       |
+| age        | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> create table student(
+    -> student_id bigint(12) primary key auto_increment,
+    -> first_name varchar(50),
+    -> last_name varchar(50),
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| student_id | bigint(12)  | NO   | PRI | NULL    | auto_increment |
+| first_name | varchar(50) | YES  |     | NULL    |                |
+| last_name  | varchar(50) | YES  |     | NULL    |                |
+| age        | int(11)     | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+mysql> insert into student(first_name, last_name, age) values('Karim','Ahmed',20);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into student values(20);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into student values(2,'Rahim','Uddin',20);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from student;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          1 | Karim      | Ahmed     |   20 |
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> select first_name from student;
++------------+
+| first_name |
++------------+
+| Karim      |
+| Rahim      |
++------------+
+2 rows in set (0.00 sec)
+
+mysql> select first_name,age from student;
++------------+------+
+| first_name | age  |
++------------+------+
+| Karim      |   20 |
+| Rahim      |   20 |
++------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select distinct(age), first_name from student;
++------+------------+
+| age  | first_name |
++------+------------+
+|   20 | Karim      |
+|   20 | Rahim      |
++------+------------+
+2 rows in set (0.03 sec)
+
+mysql> select distinct(age) from student;
++------+
+| age  |
++------+
+|   20 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select distinct(age,first_name) from student;
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> select distinct(age, first_name) from student;
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> select distinct(age),distinct(first_name) from student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct(first_name) from student' at line 1
+mysql> select distinct(age) from student;
++------+
+| age  |
++------+
+|   20 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where student_id=2;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where student_id=2 AND last_name='Uddin';
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where student_id=2 AND last_name='Ahmed';
+Empty set (0.00 sec)
+
+mysql> select * from student where student_id=2 AND last_name='Ahmed' OR last_name='Uddin';
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where student_id=2 AND (last_name='Ahmed' OR last_name='Uddin');
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where last_name='Ahmed' OR last_name='Uddin';
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          1 | Karim      | Ahmed     |   20 |
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> ^C
+mysql>
+mysql> insert into student(first_name,last_name,age)
+    -> values('Abid','Khan',19);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Abu','Hanif',19);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> values('Palash','Barmon',19);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values('Palash','Barmon',19)' at line 1
+mysql> insert into student(first_name,last_name,age)
+    -> values('Palash','Barmon',19);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('GPC','Dip',19);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Israt','Bhuiya',19);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Mirza','Israt',19);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Nusrat','Bhuiyan',19);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Syed','Jafrul',19);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student(first_name,last_name,age)
+    -> values('Mahin','Ahmed',19);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from student;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          1 | Karim      | Ahmed     |   20 |
+|          2 | Rahim      | Uddin     |   20 |
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from student order by first_name;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          2 | Rahim      | Uddin     |   20 |
+|         10 | Syed       | Jafrul    |   19 |
++------------+------------+-----------+------+
+11 rows in set (0.03 sec)
+
+mysql> select * from student order by first_name,last_name;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          2 | Rahim      | Uddin     |   20 |
+|         10 | Syed       | Jafrul    |   19 |
++------------+------------+-----------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from student order by last_name;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|          3 | Abid       | Khan      |   19 |
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from student order by last_name asc;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|          3 | Abid       | Khan      |   19 |
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from student order by last_name desc;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
+|          3 | Abid       | Khan      |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from student where age<=19 order by last_name desc;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          3 | Abid       | Khan      |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+9 rows in set (0.00 sec)
+
+mysql> select * from student where age<=19 order by age;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+9 rows in set (0.00 sec)
+
+mysql> select * from student order by first_name limit 5;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
++------------+------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student order by first_name limit 2,5;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          8 | Mirza      | Israt     |   19 |
++------------+------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student order by first_name limit 2,50;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          1 | Karim      | Ahmed     |   20 |
+|         11 | Mahin      | Ahmed     |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          2 | Rahim      | Uddin     |   20 |
+|         10 | Syed       | Jafrul    |   19 |
++------------+------------+-----------+------+
+9 rows in set (0.00 sec)
+
+mysql> select * from student limit 5,50;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+6 rows in set (0.00 sec)
+
+mysql> delete from student where first_name='Karim';
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from student;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
+|          3 | Abid       | Khan      |   19 |
+|          4 | Abu        | Hanif     |   19 |
+|          5 | Palash     | Barmon    |   19 |
+|          6 | GPC        | Dip       |   19 |
+|          7 | Israt      | Bhuiya    |   19 |
+|          8 | Mirza      | Israt     |   19 |
+|          9 | Nusrat     | Bhuiyan   |   19 |
+|         10 | Syed       | Jafrul    |   19 |
+|         11 | Mahin      | Ahmed     |   19 |
++------------+------------+-----------+------+
+10 rows in set (0.00 sec)
+
+mysql> delete from student where age=19;
+Query OK, 9 rows affected (0.07 sec)
+
+mysql> select * from student;
++------------+------------+-----------+------+
+| student_id | first_name | last_name | age  |
++------------+------------+-----------+------+
+|          2 | Rahim      | Uddin     |   20 |
++------------+------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> delete from student;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> /*Hello */ select * from student;
+Empty set (0.00 sec)
+
+mysql>

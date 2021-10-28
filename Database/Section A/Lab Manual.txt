@@ -1,0 +1,174 @@
+=> Mysql show available databases:
+		SHOW DATABASES;
+
+=> Mysql create a database:
+		CREATE DATABASE [database_name];
+		
+=> Mysql selece a database:
+		USE [datbase_name];
+		
+=> Show tables in a database:
+		SHOW TABLES;
+		
+=> Drop a database:
+		DROP DATABASE [database_name];
+		
+=> Mysql create a table:
+		CREATE TABLE [table_name](
+			[column1] DATA_TYPE [[constraint1]],
+			[column2] DATA_TYPE [[constraint2]],
+			.....
+			[columnN] DATA_TYPE [[constraintN]]
+		);
+
+=> Mysql table description:
+		DESC [table_name]; OR
+		DESCRIBE [table_name];
+=> Mysql drop a table:
+		DROP TABLE [table_name];
+
+=> Mysql rename a table:
+		ALTER TABLE [old_table_name] RENAME TO [new_table_name];
+		
+=> Mysql rename table attribute:
+		ALTER TABLE [table_name] RENAME COLUMN [old_column_name] TO [new_column_name];
+
+=> Mysql add a column to a table:
+		ALTER TABLE [table_name] ADD [column_name] DATA_TYPE [[constraint]];
+		
+=> Mysql modify a table attribute:
+		ALTER TABLE [table_name] MODIFY [column_name] DATA_TYPE [[constraint]];
+		
+=> Mysql add multiple column:
+		ALTER TABLE [table_name] ADD(
+			[column1] DATA_TYPE [[constraints]],
+			[column2] DATA_TYPE [[constraints]],
+			...
+			[columnN] DATA_TYPE [[constraints]]
+		);
+			
+=> Mysql modify multiple column:
+		ALTER TABLE [table_name] MODIFY(
+			[column1] DATA_TYPE [[constraints]],
+			[column2] DATA_TYPE [[constraints]],
+			...
+			[columnN] DATA_TYPE [[constraints]]
+		);			
+
+**) MySQL constraints:
+----------------------
+SQL constraints are used to specify rules for the data in a table. Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraints and the data action, the action is aborted.
+The following constraints are commonly used in SQL:
+-> NOT NULL: Ensures that a column can not have a NULL value.
+-> UNIQUE: Ensures that all values in a column are different.
+-> Primary Key: A combination of a NOT NULL and UNIQUE.
+-> FOREIGN KEY: Uniquely identifies a row/record in another table.
+-> CHECK: Ensures that all values in a column satisfies a specific condition.
+-> DEFAULT: Sets a default value for a column when no value specified.
+-> INDEX: Used to create and retrieve data from the database very quickly.
+-> AUTO_INCREMENT: Auto increment allows a unique number to be generated automatically. 
+
+**) Tutorial Exam - I:
+----------------------
+Date: 25 Feb 2019
+Time: Class Time
+Syllabus: All lectures including Saturday(23 Feb 2019)
+
+=> Index: CREATE INDEX [index_name] ON [table_name] (column1, column2, ....);
+OR
+=> CREATE UNIQUE INDEX [index_name] ON [table_name] (column1, column2, ....);
+
+=> Index Drop altering table:
+	ALTER [table_name] DROP INDEX [index_name];
+
+=> CONSTRAINT [constraint_name] UNIQUE(columns);
+
+
+=> Data Insert in a Table:
+	INSERT INTO [table_name](column1, column2, ....) VALUES([value1], [value2], ...);
+	
+OR
+	
+	INSERT INTO [table_name] VALUES([value1],[value2], ....);
+	[Note: Must need to fullfill all the values in according to the order]
+ 
+=> Information retrieve from a table:
+	
+	SELECT column1, column2, column3, ... FROM [table_name];
+	
+OR
+	
+	SELECT * FROM [table_name];
+	
+OR
+	SELECT distinct(columns) FROM [table_name];
+  
+OR
+	
+	SELECT column1, column2, column3, ... FROM [table_name] WHERE column1[RO]value1 [LO] column2[RO]value2;
+
+OR
+
+	SELECT column1, column2, column3, ... FROM [table_name] WHERE column1[RO]value1 [LO] column2[RO]value2 ORDER BY [columns] ASC/DESC;
+
+OR 
+	SELECT column1, column2, column3, ... FROM [table_name] WHERE column1[RO]value1 [LO] column2[RO]value2 ORDER BY [columns] ASC/DESC LIMIT [number];
+
+=> Delete informations from a table:
+	DELETE FROM [table_name] WHERE [conditions];
+	
+=> TRUNCATE TABLE [table_name];
+
+=> FOREIGN KEY(column_names) REFERENCES another_table_name(column_names)
+		
+=> CONSTRAINT constraint_name FOREIGN KEY(column_names) REFERENCES another_table_name(column_names)
+			
+=> Update a Row/Record:
+------------------------
+	UPDATE table_name SET
+		column_name_1='value1',
+		column_name_2='value2',
+		...
+		column_name_n='value'
+	WHERE [conditions];
+	
+	[Note: Try to use primary key based condition] 
+	
+
+=> Mysql null value checking:
+-----------------------------
+	-> Checking of null values using comparison operator(=,>,<,>=,<=,<>)
+	-> IS NULL
+	-> IS NOT NULL
+	example:
+	select * from student where first_name is not null; 
+	select * from student where first_name is null; 
+	
+	
+=> Pattern matching technique in SQL:
+-------------------------------------
+	The LIKE operator is used in a WHERE clause to search for a specified pattern in a column. There are two wildcards often used in conjunction with the like operator.
+	-> % : The percent sign represents zero, one
+	or multiple characters.
+	-> _ : The underscore sign represents a single character.
+	
+	{_|a-z|A-Z}{_|a-z|A-Z|0-9}*
+	
+	select * from student where first_name like '_a%';
+	select * from student where first_name like '%b';
+	select * from blog where post like '%science%';
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+			
+			
+		
+		

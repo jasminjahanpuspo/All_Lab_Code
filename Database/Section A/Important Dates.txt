@@ -1,0 +1,26 @@
+=> Lab Exam - I
+---------------
+Date: 28.03.19 (Thursday)(Section A)
+Syllabus: All lectures including 20.03.19 
+Time: 2:00 pm - 3:00 pm
+Marks: 25
+Duration: 35 minutes
+Note: No Hard Copy Allowed
+
+=> Project Proposal Submission:
+-------------------------------
+Date: 27.03.09 (wednesday)(Section A)
+Time: Class Time
+Marks: 05
+Requirements:
+-> Proper Cover Page
+-> Objective
+	-> Introduction
+	-> Current System Performance
+	-> Current System Disadvantages
+	-> How Your System Works to improve current system
+	-> Services of your system
+-> Features of your project
+Note: No Extension in submission date
+No of Students in a group: 01 
+
