@@ -1,0 +1,57 @@
+create database music_player;
+
+create table Album(
+albumId int primary key ,
+albumName text not null,
+releaseYear year not null,
+publisher text null
+);
+
+create table Artist(
+artistId int primary key ,
+firstName text not null,
+lastName text,
+country text
+);
+
+
+create table Song(
+songId int primary key ,
+songTitle text not null,
+runtime int ,
+albumId int ,
+foreign key (albumId )references Album(albumId)
+);
+
+
+create table SongArtist (
+songId int foreign key,
+artistID int foreign key,
+foreign key (songId )references Song(songId)
+foreign key (artistID)references Artist(artistId)
+);
+
+
+
+
+insert into Artist (artistId ,firstName,lastName,country) values(1,'habib','wahid','bangladesh');
+insert into Artist (artistId ,firstName,lastName,country) values(2,'james',' ','bangladesh');
+insert into Artist (artistId ,firstName,lastName,country) values(3,'tayor','swift','usa');
+
+
+insert into Album(albumId,albumName,releaseYear,publisher) values(1,'shonno',2006,'sangeeta');
+insert into Album(albumId,albumName,releaseYear,publisher) values(2,'fearless',2008,'BM record');
+insert into Album(albumId,albumName,releaseYear,publisher) values(3,'1998',2014,'virgin emi');
+
+insert into Song (songId,songTitle,runtime,albumId) values(1,'jadu',341,1);
+insert into Song (songId,songTitle,runtime,albumId) values(2,'ekhoni nambe',284,1);
+insert into Song (songId,songTitle,runtime,albumId) values(3,'blank space',231,3);
+insert into Song (songId,songTitle,runtime,albumId) values(4,'wonderland',225,3);
+insert into Song (songId,songTitle,runtime,albumId) values(5,'wildest dreams',220,3);
+
+
+insert into SongArtist(songId,artistId) values(1,1);
+insert into SongArtist(songId,artistId) values(2,1);
+insert into SongArtist(songId,artistId) values(3,3);
+insert into SongArtist(songId,artistId) values(4,3);
+insert into SongArtist(songId,artistId) values(5,3);

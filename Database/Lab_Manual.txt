@@ -1,0 +1,130 @@
+=> Mysql available database list: 
+		SHOW DATABASES;
+
+=> Mysql selecting a database:
+		USE [database_name];
+
+=> Mysql creating a datbase:
+		CREATE DATABASE [database_name];
+		
+=> Mysql dropping a database:
+		DROP DATABASE [database_name];
+
+=> Mysql creating a table:
+		CREATE TABLE [table_name](
+			[column1] DATA_TYPE [CONSTRAINT1],
+			[column2] DATA_TYPE [CONSTRAINT2],
+			....
+			[columnN] DATA_TYPE [CONSTRAINTN]
+		);
+
+=> Mysql available table list:
+		SHOW TABLES;
+
+=> Mysql table description:
+		DESC [table_name];
+		
+=> Mysql dropping a table:
+		DROP TABLE [table_name]; 
+		
+=> Mysql rename a table:
+		ALTER TABLE [old_table_name] RENAME TO [new_table_name];
+		
+=> Mysql rename a attribute:
+		ALTER TABLE [table_name] RENAME COLUMN [column_old_name] TO [column_new_name];
+
+=> Mysql add an attribute in a table:
+		ALTER TABLE [table_name] ADD [column_name] DATA_TYPE;
+		
+=> Mysql drop an attribute from a table:
+		ALTER TABLE [table_name] DROP [column_name];
+
+=> Mysql modify an attribute properties:
+		ALTER TABLE [table_name] MODIFY [column_name] DATA_TYPE [CONSTRAINT];
+		
+**) SQL Constraints:
+--------------------
+SQL constraints are used to specific rules for the data in a table. Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraints and the data action, the action is aborted.
+The following constraints are commonly used in SQL:
+-> NOT NULL: Ensures that a column can not have a null value.
+-> UNIQUE: Ensures that all values in a column are different.
+-> PRIMARY KEY: A combination of a NOT NULL and UNIQUE.
+-> FOREIGN KEY: Uniquely identifies a row/record in another table.
+-> CHECK: Ensures that all values in a column satisfies a specific condition.
+-> DEFAULT: Sets a default value for a column when no values specified.
+-> INDEX: Used to create and retrieve data from the database very quickly.
+-> AUTO_INCREMENT: Auto increment allows a unique number to be generated automatically when a new record is inserted into a table.Often this is the primary key field which we would like to be created automatically every time a new record is inserted.
+----------------------
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		
+		
+		
+		
+		

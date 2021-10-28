@@ -1,0 +1,162 @@
+=> create database university;
+=> show databases;
+=> use university;
+=> create table student(
+		student_id bigint(12),
+		name varchar(50),
+		session varchar(50),
+		age int(3),
+		gender enum("Male","Female","Other")
+	);
+=> show tables;
+=> desc student;
+=> alter table student rename to student_info;
+=> show tables;
+=> desc student_info;
+=> alter table student_info rename column name to student_name;
+=> desc student_info; 
+=> alter table student_info add address mediumtext;
+=> desc student_info;
+=> alter table student_info drop address;
+=> desc student_info;
+=> alter table student_info modify student_name varchar(30);
+=> desc student_info;
+=> drop table student_info;
+=> create table student(
+		student_id bigint(12) not null,
+		student_name varchar(50) not null
+	);
+=> desc student;	
+=> drop table student;
+=> create table student(
+		student_id bigint(12) not null unique,
+		student_name varchar(30) unique
+	);
+=> desc student;
+=> drop table student;
+=> create table student(
+		student_id bigint(12),
+		student_name varchar(30),
+		unique(student_id, student_name)
+	);
+=> desc student; 
+=> drop table student;
+=> create table student(
+		student_id bigint(12) not null,
+		student_name varchar(30),
+		unique(student_id),
+		unique(student_name)
+	);
+=> drop table student;
+=> desc student;
+=> create table student(
+		student_id bigint(12) primary key,
+		student_name varchar(50) not null
+	);
+=> desc student;
+=> drop table student;
+=> create table student(
+		student_id bigint(12),
+		student_name varchar(50),
+		primary key(student_id)
+	);
+=> desc student;
+=> drop table student;
+=> create table student(
+		student_id bigint(12),
+		student_name varchar(50),
+		constraint st_id_pk primary key(student_id)
+	);
+=> desc student;
+=> drop table student;
+=> create table student(
+		student_id bigint(12),
+		student_name varchar(50),
+		age int check(age>=18)
+	);
+=> desc student;
+=> drop table student;
+=> create table student(
+		student_id bigint(12),
+		student_name varchar(50),
+		age int,
+		check(age>=18)
+	);
+=> desc student;
+=> drop table student;
+=> 
+ 
+
+
+ 
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+	
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
