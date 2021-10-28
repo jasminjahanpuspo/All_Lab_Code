@@ -1,0 +1,12 @@
+﻿Name=নাম
+Home=বাড়ি
+Pen=কলম
+Car=গাড়ি
+Paper=কাগজ
+Hand=হাত
+Head=মাথা
+Horse=ঘোড়া
+Tiger=বাঘ
+Good=ভাল
+Dog=কুকুর
+Name=নাম

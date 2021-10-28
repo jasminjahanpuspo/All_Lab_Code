@@ -1,0 +1,3 @@
+innerclassdemo2.Outer$1Inner
+innerclassdemo2.Outer
+innerclassdemo2.Innerclassdemo2

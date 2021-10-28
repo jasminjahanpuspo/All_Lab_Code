@@ -1,0 +1,3 @@
+hi=greetings
+nice=beautiful
+noisy=bad sound

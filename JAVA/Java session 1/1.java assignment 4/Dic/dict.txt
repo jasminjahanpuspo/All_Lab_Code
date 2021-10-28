@@ -1,0 +1,4 @@
+hi=greetings
+nice=beautiful
+noisy=bad sound
+puspo=flower
