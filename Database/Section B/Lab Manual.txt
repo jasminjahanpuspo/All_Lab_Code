@@ -1,0 +1,90 @@
+=> Mysql show available databases:
+		SHOW DATABASES;
+
+=> Mysql create a database:
+		CREATE DATABASE [database_name];
+		
+=> Mysql selece a database:
+		USE [datbase_name];
+		
+=> Show tables in a database:
+		SHOW TABLES;
+		
+=> Drop a database:
+		DROP DATABASE [database_name];
+		
+=> Mysql create a table:
+		CREATE TABLE [table_name](
+			[column1] DATA_TYPE [[constraint1]],
+			[column2] DATA_TYPE [[constraint2]],
+			.....
+			[columnN] DATA_TYPE [[constraintN]]
+		);
+
+=> Mysql table description:
+		DESC [table_name]; OR
+		DESCRIBE [table_name];
+=> Mysql drop a table:
+		DROP TABLE [table_name];
+
+=> Mysql rename a table:
+		ALTER TABLE [old_table_name] RENAME TO [new_table_name];
+		
+=> Mysql rename table attribute:
+		ALTER TABLE [table_name] RENAME COLUMN [old_column_name] TO [new_column_name];
+
+=> Mysql add a column to a table:
+		ALTER TABLE [table_name] ADD [column_name] DATA_TYPE [[constraint]];
+		
+=> Mysql modify a table attribute:
+		ALTER TABLE [table_name] MODIFY [column_name] DATA_TYPE [[constraint]];
+		
+=> Mysql add multiple column:
+		ALTER TABLE [table_name] ADD(
+			[column1] DATA_TYPE [[constraints]],
+			[column2] DATA_TYPE [[constraints]],
+			...
+			[columnN] DATA_TYPE [[constraints]]
+		);
+			
+=> Mysql modify multiple column:
+		ALTER TABLE [table_name] MODIFY(
+			[column1] DATA_TYPE [[constraints]],
+			[column2] DATA_TYPE [[constraints]],
+			...
+			[columnN] DATA_TYPE [[constraints]]
+		);			
+
+**) MySQL constraints:
+----------------------
+SQL constraints are used to specify rules for the data in a table. Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraints and the data action, the action is aborted.
+The following constraints are commonly used in SQL:
+-> NOT NULL: Ensures that a column can not have a NULL value.
+-> UNIQUE: Ensures that all values in a column are different.
+-> Primary Key: A combination of a NOT NULL and UNIQUE.
+-> FOREIGN KEY: Uniquely identifies a row/record in another table.
+-> CHECK: Ensures that all values in a column satisfies a specific condition.
+-> DEFAULT: Sets a default value for a column when no value specified.
+-> INDEX: Used to create and retrieve data from the database very quickly.
+-> AUTO_INCREMENT: Auto increment allows a unique number to be generated automatically. 
+
+
+ 
+
+  
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+			
+		
+		
